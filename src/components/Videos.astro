@@ -1,0 +1,82 @@
+---
+import { videos } from '../data/videos';
+import { products } from '../data/products';
+import T from './T.astro';
+import Placeholder from './Placeholder.astro';
+import Icon from './Icon.astro';
+import { localizedPath } from '../data/site';
+import { t } from '../data/translations';
+const { ids, lang = 'tr' } = Astro.props;
+const selected = ids ? videos.filter((v) => ids.includes(v.id)) : videos;
+---
+
+<section class="section videos-section">
+  <div class="container">
+    <div class="section-head">
+      <h2>
+        <T k="videos" />
+      </h2>
+    </div>
+    <div class="video-grid">
+      {selected.map((video) => {
+        const product = products.find((p) => p.slug === video.productId);
+        return (
+          <article class="video-card">
+            <div class="video-visual">
+              {video.thumbnail ? (
+                <img src={video.thumbnail} alt="" width="800" height="450" loading="lazy" />
+              ) : (
+                <Placeholder kind="video" label="videoThumbnail" />
+              )}
+              {!video.url && (
+                <span class="badge">
+                  <T k="soon" />
+                </span>
+              )}
+              {video.url ? (
+                <a
+                  class="video-play"
+                  href={video.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={t('play', lang)}
+                  data-aria-tr={t('play', 'tr')}
+                  data-aria-en={t('play', 'en')}
+                >
+                  <Icon name="play" size={26} />
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  class="video-play"
+                  disabled
+                  aria-label={t('soon', lang)}
+                  data-aria-tr={t('soon', 'tr')}
+                  data-aria-en={t('soon', 'en')}
+                >
+                  <Icon name="play" size={26} />
+                </button>
+              )}
+            </div>
+            <div class="video-copy">
+              <h3>
+                <T text={video.title} />
+              </h3>
+              <div class="video-meta">
+                {product && (
+                  <a
+                    href={localizedPath(`/products/${product.slug}/`, lang)}
+                    data-route={`/products/${product.slug}/`}
+                  >
+                    <T text={product.name} />
+                  </a>
+                )}
+                {video.duration && <span>{video.duration}</span>}
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>
