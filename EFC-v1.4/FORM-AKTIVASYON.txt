@@ -1,9 +1,0 @@
-EFC Technology - Formun ilk aktivasyonu
-
-1) Bu sürümde bütün görünür e-posta bağlantıları ve iletişim formu info@efctechnology.com adresine yönlenir.
-2) Web sitesini yayına aldıktan sonra iletişim formundan ilk test mesajını gönderin.
-3) FormSubmit ilk kullanımda info@efctechnology.com adresine aktivasyon/onay maili gönderebilir. Gelen kutusu ve spam klasörünü kontrol edip aktivasyon bağlantısını onaylayın.
-4) Bir ikinci test mesajı gönderin ve info@efctechnology.com gelen kutusuna ulaştığını doğrulayın.
-5) Mail gelmiyorsa info@efctechnology.com posta kutusunun etkin olduğundan ve FormSubmit doğrulamasının tamamlandığından emin olun.
-
-Not: Kaynak kodun denetlenmesi e-postanın gerçekten teslim edildiğini kanıtlamaz. Gerçek teslimat testi yayındaki siteden yapılmalıdır.
