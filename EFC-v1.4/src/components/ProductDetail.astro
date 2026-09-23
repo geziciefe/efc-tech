@@ -1,0 +1,188 @@
+---
+import T from './T.astro';
+import Icon from './Icon.astro';
+import Placeholder from './Placeholder.astro';
+import ProductCard from './ProductCard.astro';
+import Videos from './Videos.astro';
+import CTA from './CTA.astro';
+import { products, categoryFor, type Product } from '../data/products';
+import { localizedPath } from '../data/site';
+import { t } from '../data/translations';
+const { product, lang = 'tr' } = Astro.props as { product: Product; lang: 'tr' | 'en' };
+const cat = categoryFor(product.category);
+const enquiry = `?product=${product.slug}`;
+---
+
+<div class="container">
+  <nav
+    class="breadcrumbs"
+    aria-label={lang === 'tr' ? 'Sayfa yolu' : 'Breadcrumbs'}
+    data-aria-tr="Sayfa yolu"
+    data-aria-en="Breadcrumbs"
+  >
+    <a href={localizedPath('/', lang)} data-route="/">
+      <T k="home" />
+    </a>
+    <span>/</span>
+    <a href={localizedPath('/products/', lang)} data-route="/products/">
+      <T k="products" />
+    </a>
+    <span>/</span>
+    <span>
+      <T text={product.name} />
+    </span>
+  </nav>
+</div>
+<section class="product-detail">
+  <div class="container detail-grid">
+    <div
+      class="gallery"
+      aria-label={t('gallery', lang)}
+      data-aria-tr={t('gallery', 'tr')}
+      data-aria-en={t('gallery', 'en')}
+    >
+      <div class="gallery-main">
+        {product.images.length ? (
+          <img
+            id="gallery-image"
+            src={product.images[0].src}
+            alt={product.images[0].alt[lang]}
+            data-alt-tr={product.images[0].alt.tr}
+            data-alt-en={product.images[0].alt.en}
+            width="800"
+            height="640"
+          />
+        ) : (
+          <Placeholder />
+        )}
+      </div>
+      {product.images.length > 1 && (
+        <div class="gallery-thumbs">
+          {product.images.map((im, i) => (
+            <button
+              type="button"
+              data-gallery-src={im.src}
+              data-gallery-alt-tr={im.alt.tr}
+              data-gallery-alt-en={im.alt.en}
+              aria-pressed={i === 0}
+              aria-label={im.alt[lang]}
+              data-aria-tr={im.alt.tr}
+              data-aria-en={im.alt.en}
+            >
+              <img src={im.src} alt="" width="90" height="70" loading="lazy" />
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+    <div class="detail-copy">
+      <span class="eyebrow">
+        <T text={cat.name} />
+      </span>
+      <h1>
+        <T text={product.name} />
+      </h1>
+      {product.model && !product.name.tr.includes(product.model) && (
+        <span class="detail-model">
+          <T k="model" />: {product.model}
+        </span>
+      )}
+      <p class="detail-description">
+        <T text={product.description} />
+      </p>
+      <div class="detail-actions">
+        <a
+          class="button"
+          href={localizedPath('/contact/', lang) + enquiry}
+          data-route="/contact/"
+          data-query={enquiry}
+        >
+          <T k="enquire" />
+          <Icon />
+        </a>
+        <button type="button" class="button button-light" data-whatsapp>
+          <Icon name="whatsapp" />
+          <T k="whatsapp" />
+        </button>
+      </div>
+      {product.documents.length > 0 && (
+        <div class="detail-docs">
+          <Icon name="file" />
+          <div>
+            <h3>
+              <T k="docs" />
+            </h3>
+            {product.documents.map((d) => (
+              <a class="document-link" href={d.url} download>
+                <T text={d.title} /> · <T k="download" />
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+{product.specifications.length > 0 && (
+  <section class="spec-section">
+    <div class="container spec-grid">
+      <div>
+        <span class="eyebrow">
+          EFC / <T k="technical" />
+        </span>
+        <h2>
+          <T k="specifications" />
+        </h2>
+      </div>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">
+                <T k="parameter" />
+              </th>
+              <th scope="col">
+                <T k="value" />
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {product.specifications.map((s) => (
+              <tr>
+                <th scope="row">
+                  <T text={s.label} />
+                </th>
+                <td>
+                  <T text={s.value} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+)}
+{product.videoIds.length > 0 && <Videos ids={product.videoIds} lang={lang} />}
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>
+        <T k="related" />
+      </h2>
+      <a class="text-link" data-route="/products/" href={localizedPath('/products/', lang)}>
+        <T k="allProducts" />
+        <Icon />
+      </a>
+    </div>
+    <div class="product-grid">
+      {products
+        .filter((p) => p.slug !== product.slug)
+        .slice(0, 3)
+        .map((p) => (
+          <ProductCard product={p} lang={lang} />
+        ))}
+    </div>
+  </div>
+</section>
+<CTA lang={lang} />

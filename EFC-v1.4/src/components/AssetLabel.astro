@@ -1,0 +1,13 @@
+---
+import T from './T.astro';
+import { site } from '../data/site';
+import type { Localized } from '../data/products';
+const { subject, guidance } = Astro.props as { subject: Localized; guidance?: Localized | string };
+---
+
+{site.draft.showAssetLabels && (
+  <span class="asset-label">
+    <T text={subject} />
+    {guidance && <small>{typeof guidance === 'string' ? guidance : <T text={guidance} />}</small>}
+  </span>
+)}

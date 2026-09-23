@@ -1,0 +1,22 @@
+---
+import Hero from './Hero.astro';
+import CategoryPanels from './CategoryPanels.astro';
+import FeaturedProducts from './FeaturedProducts.astro';
+import CapabilityBand from './CapabilityBand.astro';
+import References from './References.astro';
+import Videos from './Videos.astro';
+import CTA from './CTA.astro';
+import LocationMap from './LocationMap.astro';
+const { lang = 'tr' } = Astro.props;
+---
+
+<Hero lang={lang} />
+<div class="home-composition">
+  <CategoryPanels lang={lang} />
+  <FeaturedProducts lang={lang} />
+  <CapabilityBand lang={lang} />
+  <References lang={lang} />
+  <Videos lang={lang} />
+  <CTA lang={lang} />
+  <LocationMap lang={lang} />
+</div>

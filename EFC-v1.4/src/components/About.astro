@@ -1,0 +1,160 @@
+---
+import T from './T.astro';
+import MediaCanvas from './MediaCanvas.astro';
+import CTA from './CTA.astro';
+import { aboutFieldImage, aboutHeroImage } from '../data/visuals';
+import { categories } from '../data/products';
+import { localizedPath } from '../data/site';
+const { lang = 'tr' } = Astro.props as { lang?: 'tr' | 'en' };
+---
+
+<section class="about-hero">
+  <MediaCanvas image={aboutHeroImage} lang={lang} priority />
+  <div class="about-shade" aria-hidden="true"></div>
+  <div class="container">
+    <h1>
+      <T k="aboutTitle" />
+    </h1>
+  </div>
+</section>
+<section class="section about-editorial">
+  <div class="container about-grid">
+    <div>
+      <h2>EFC Technology</h2>
+      <a
+        class="text-link"
+        href={lang === 'en' ? '/en/products/' : '/products/'}
+        data-route="/products/"
+      >
+        <T k="viewProducts" />
+      </a>
+    </div>
+    <div>
+      <p class="lead">
+        <T k="aboutIntro" />
+      </p>
+      <p>
+        <T k="aboutBody" />
+      </p>
+    </div>
+  </div>
+</section>
+<section class="about-field">
+  <div class="container about-field-grid">
+    <div class="about-field-image">
+      <img
+        src={aboutFieldImage.src}
+        alt={aboutFieldImage.alt[lang]}
+        data-alt-tr={aboutFieldImage.alt.tr}
+        data-alt-en={aboutFieldImage.alt.en}
+        style={`object-position:${aboutFieldImage.focalPoint}`}
+        width="2048"
+        height="1536"
+        loading="lazy"
+      />
+    </div>
+    <div class="about-field-copy">
+      <h2>
+        <T k="aboutFieldTitle" />
+      </h2>
+      <p>
+        <T k="aboutFieldBody" />
+      </p>
+      <div class="about-audiences">
+        <h3>
+          <T k="aboutAudiences" />
+        </h3>
+        <ul>
+          <li>
+            <T k="audienceCommercial" />
+          </li>
+          <li>
+            <T k="audienceMaritime" />
+          </li>
+          <li>
+            <T k="audienceShipyard" />
+          </li>
+          <li>
+            <T k="audienceInstitutional" />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="approach-section">
+  <div class="container">
+    <div class="approach-heading">
+      <h2>
+        <T k="ourApproach" />
+      </h2>
+      <div>
+        <h3>
+          <T k="approachTitle" />
+        </h3>
+        <p>
+          <T k="approachDesc" />
+        </p>
+      </div>
+    </div>
+    <div class="approach-grid">
+      {(
+        [
+          { key: 'selection', desc: 'selectionDesc' },
+          { key: 'technical', desc: 'technicalDesc' },
+          { key: 'afterSales', desc: 'afterSalesDesc' },
+        ] as const
+      ).map((a) => (
+        <article>
+          <h3>
+            <T k={a.key} />
+          </h3>
+          <p>
+            <T k={a.desc} />
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+<section class="about-ranges">
+  <div class="container">
+    <div class="about-ranges-heading">
+      <h2>
+        <T k="productGroupsTitle" />
+      </h2>
+      <p>
+        <T k="productGroupsIntro" />
+      </p>
+    </div>
+    <div class="about-ranges-grid">
+      {categories.map((category) => {
+        const [path, query] = category.path.split('?');
+        return (
+          <a
+            href={localizedPath(path, lang) + (query ? `?${query}` : '')}
+            data-route={path}
+            data-query={query ? `?${query}` : undefined}
+          >
+            {category.image && (
+              <img src={category.image} alt="" width="900" height="650" loading="lazy" />
+            )}
+            <span class="about-range-shade" aria-hidden="true"></span>
+            <div>
+              <h3>
+                <T text={category.name} />
+              </h3>
+              <p>
+                <T text={category.description} />
+              </p>
+              <span>
+                <T k="categoryAction" />
+              </span>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>
+<CTA lang={lang} />

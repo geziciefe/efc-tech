@@ -1,0 +1,30 @@
+---
+import { site } from '../data/site';
+interface Props {
+  variant?: 'adaptive' | 'light' | 'color';
+  priority?: boolean;
+}
+const { variant = 'adaptive', priority = false } = Astro.props;
+---
+
+<span class:list={['brand-mark', `brand-mark--${variant}`]} aria-hidden="true">
+  <img
+    class="brand-base"
+    src={variant === 'color' ? site.logos.color : site.logos.light}
+    width={site.logos.width}
+    height={site.logos.height}
+    alt=""
+    loading={priority ? 'eager' : 'lazy'}
+    fetchpriority={priority ? 'high' : 'auto'}
+  />
+  {variant === 'adaptive' && (
+    <img
+      class="brand-active"
+      src={site.logos.active}
+      width={site.logos.width}
+      height={site.logos.height}
+      alt=""
+      loading="eager"
+    />
+  )}
+</span>
