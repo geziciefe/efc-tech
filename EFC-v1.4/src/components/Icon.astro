@@ -1,0 +1,54 @@
+---
+const { name = 'arrow', size = 20 } = Astro.props;
+const isWhatsapp = name === 'whatsapp';
+const paths: Record<string, string> = {
+  chevronLeft: 'm15 5-7 7 7 7',
+  chevronRight: 'm9 5 7 7-7 7',
+  pause: 'M8 5v14M16 5v14',
+  arrow: 'M4 12h16m-6-6 6 6-6 6',
+  diagonal: 'M6 18 18 6M6 6h12v12',
+  search: 'm21 21-5-5M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0',
+  menu: 'M3 6h18M3 12h18M3 18h18',
+  close: 'm6 6 12 12M18 6 6 18',
+  image: 'M4 4h16v16H4zM4 16l5-5 4 4 3-3 4 4M14 8h.01',
+  play: 'm9 5 11 7-11 7z',
+  file: 'M14 2H5v20h14V7zM14 2v6h5M8 13h8M8 17h6',
+  mail: 'M3 5h18v14H3zM3 5l9 8 9-8',
+  phone: 'M5 3h4l2 5-3 2a15 15 0 0 0 6 6l2-3 5 2v4c0 2-3 3-5 2A22 22 0 0 1 3 8C2 6 3 3 5 3',
+  pin: 'M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0ZM15 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0',
+  clock: 'M12 7v5l3 2M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0',
+  check: 'm5 12 4 4L19 6',
+  whatsapp:
+    'M21 11.5a9 9 0 0 1-13.5 7.8L3 21l1.7-4.5A9 9 0 1 1 21 11.5ZM8 7c-2 3 3 8 6 9l2-2-3-2-1 1-2-2 1-1z',
+};
+---
+
+{isWhatsapp ? (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path
+      d="M20.4 11.8a8.4 8.4 0 0 1-12.5 7.35L3.7 20.3l1.12-4.1A8.4 8.4 0 1 1 20.4 11.8Z"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+    <path
+      d="M8.8 7.8c.2-.2.46-.3.72-.22l1.25.42c.23.08.4.28.43.52l.18 1.2a.65.65 0 0 1-.19.56l-.72.72a8.02 8.02 0 0 0 2.54 2.54l.72-.72a.65.65 0 0 1 .56-.19l1.2.18c.24.03.44.2.52.43l.42 1.25c.08.26-.02.52-.22.72l-.76.76c-.43.43-1.06.62-1.65.46a10.25 10.25 0 0 1-6.25-6.25c-.16-.59.03-1.22.46-1.65l.75-.77Z"
+      fill="currentColor"
+    ></path>
+  </svg>
+) : (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d={paths[name] ?? paths.arrow} />
+  </svg>
+)}
