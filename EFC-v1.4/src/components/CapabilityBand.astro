@@ -1,0 +1,31 @@
+---
+import T from './T.astro';
+import MediaCanvas from './MediaCanvas.astro';
+import { capabilityImage } from '../data/visuals';
+import { localizedPath } from '../data/site';
+const { lang = 'tr' } = Astro.props;
+const homeCapabilityImage = {
+  ...capabilityImage,
+  src: capabilityImage.src ?? '/assets/hero-underwater-3.jpg',
+};
+---
+
+<section class="capability-band">
+  <div class="capability-copy">
+    <div class="capability-copy-inner">
+      <h2>
+        <T k="about" />
+      </h2>
+      <p>
+        <T k="companyBandText" />
+      </p>
+      <a class="button button-outline" href={localizedPath('/about/', lang)} data-route="/about/">
+        <T k="aboutMore" />
+      </a>
+    </div>
+  </div>
+  <div class="capability-image">
+    <MediaCanvas image={homeCapabilityImage} lang={lang} />
+    <div class="capability-shade" aria-hidden="true"></div>
+  </div>
+</section>

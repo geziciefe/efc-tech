@@ -1,0 +1,78 @@
+---
+import T from './T.astro';
+import Icon from './Icon.astro';
+import { localizedPath, site } from '../data/site';
+const { lang = 'tr' } = Astro.props;
+const mapUrl =
+  'https://www.google.com/maps?q=Alt%C4%B1n%20Han%2C%20Hamidiye%20Caddesi%2C%20Sirkeci%2C%20Fatih%2C%20%C4%B0stanbul&output=embed';
+const directionsUrl =
+  'https://www.google.com/maps/search/?api=1&query=Alt%C4%B1n%20Han%2C%20Hamidiye%20Caddesi%2C%20Sirkeci%2C%20Fatih%2C%20%C4%B0stanbul';
+---
+
+<section class="home-location" aria-labelledby="home-location-title">
+  <div class="container home-contact-layout">
+    <div class="home-contact-panel">
+      <h2 id="home-location-title">
+        <T k="contact" />
+      </h2>
+      <p class="home-contact-intro">
+        <T k="contactIntro" />
+      </p>
+      <dl class="home-contact-list">
+        <div>
+          <dt>
+            <T k="phone" />
+          </dt>
+          <dd>
+            {site.contact.phone ? (
+              <a class="home-contact-phone" href={`tel:${site.contact.phone.replace(/\D/g, '')}`}>
+                {site.contact.phone}
+              </a>
+            ) : (
+              <T k="pending" />
+            )}
+          </dd>
+        </div>
+        <div>
+          <dt>
+            <T k="email" />
+          </dt>
+          <dd>
+            <T k="pending" />
+          </dd>
+        </div>
+        <div>
+          <dt>
+            <T k="address" />
+          </dt>
+          <dd>
+            <T k="pending" />
+          </dd>
+        </div>
+      </dl>
+      <a class="button" href={localizedPath('/contact/', lang)} data-route="/contact/">
+        <T k="talk" />
+      </a>
+    </div>
+    <div class="home-map-column">
+      <div class="home-map-topline">
+        <span>
+          <T k="locationTitle" />
+        </span>
+        <a class="location-link" href={directionsUrl} target="_blank" rel="noopener noreferrer">
+          <T k="directions" />
+          <Icon name="diagonal" size={18} />
+        </a>
+      </div>
+      <div class="home-map-frame">
+        <iframe
+          src={mapUrl}
+          title={lang === 'tr' ? 'EFC Technology konumu' : 'EFC Technology location'}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
