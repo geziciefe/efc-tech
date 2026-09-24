@@ -9,7 +9,7 @@ export type ContactConfig = {
 };
 export const site = {
   name: 'EFC Technology',
-  version: '1.4.8',
+  version: '1.5.0',
   draft: { showAssetLabels: true },
   logo: '/assets/efc-logo.webp',
   // All states derive from the supplied mark, with the same alpha geometry.

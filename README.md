@@ -1,4 +1,4 @@
-# EFC Website (v1.4.8)
+# EFC Website (v1.5.0)
 
 The project files are at the repository root. For GitHub and Cloudflare Pages setup, see [DEPLOY.md](DEPLOY.md).
 

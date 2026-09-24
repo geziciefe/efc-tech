@@ -24,7 +24,7 @@ function documentFor(route = '/') {
   return new JSDOM(read(route), { url: `https://efc.test${route}` }).window.document;
 }
 
-check(files.length === 37, '36 localized routes plus 404 are built');
+check(files.length === 39, '38 localized routes plus 404 are built');
 
 for (const route of ['/', '/en/']) {
   const homepage = documentFor(route);
@@ -67,7 +67,7 @@ for (const file of files) {
     link.getAttribute('href') === 'mailto:info@efctechnology.com' &&
     link.textContent.trim() === 'info@efctechnology.com',
   ), `${file}: all email links display and open the new address`);
-  check(doc.body.dataset.version === '1.4.8', `${file}: current version`);
+  check(doc.body.dataset.version === '1.5.0', `${file}: current version`);
   check(!html.includes('camera-light-bracket-dark'), `${file}: removed dark bracket visual`);
 
   for (const element of doc.querySelectorAll(
