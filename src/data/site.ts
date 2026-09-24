@@ -9,7 +9,7 @@ export type ContactConfig = {
 };
 export const site = {
   name: 'EFC Technology',
-  version: '1.4.6',
+  version: '1.4.8',
   draft: { showAssetLabels: true },
   logo: '/assets/efc-logo.webp',
   // All states derive from the supplied mark, with the same alpha geometry.
@@ -23,7 +23,7 @@ export const site = {
   contact: {
     phone: '+90 532 244 75 55',
     email: 'info@efctechnology.com',
-    address: null,
+    address: 'Hobyar Mh. Hamidiye Cd. Altın Han\nKat 2 No 96 Sirkeci Fatih İstanbul / TR',
     hours: null,
     mapUrl: null,
     whatsapp: '905322447555',

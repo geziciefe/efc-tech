@@ -2,7 +2,6 @@
 import T from './T.astro';
 import PageIntro from './PageIntro.astro';
 import CTA from './CTA.astro';
-import { site } from '../data/site';
 import { references } from '../data/references';
 const { lang = 'tr' } = Astro.props;
 ---
@@ -28,11 +27,6 @@ const { lang = 'tr' } = Astro.props;
               <strong>
                 <T text={ref.name} />
               </strong>
-              {site.draft.showAssetLabels && (
-                <span>
-                  <T k="logoPending" />
-                </span>
-              )}
             </div>
           )}
         </div>

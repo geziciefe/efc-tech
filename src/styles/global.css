@@ -1765,6 +1765,10 @@ input[type='checkbox'] {
   color: #bbcad5;
   font-size: 0.875rem;
 }
+.contact-address,
+.home-contact-address {
+  white-space: pre-line;
+}
 .contact-row a:hover,
 .contact-row a:focus-visible {
   color: #fff;

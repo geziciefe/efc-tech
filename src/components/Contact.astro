@@ -1,7 +1,6 @@
 ---
 import T from './T.astro';
 import Icon from './Icon.astro';
-import Placeholder from './Placeholder.astro';
 import PageIntro from './PageIntro.astro';
 import { site } from '../data/site';
 import { products } from '../data/products';
@@ -127,7 +126,6 @@ const fields = [
           { key: 'phone', icon: 'phone' },
           { key: 'email', icon: 'mail' },
           { key: 'address', icon: 'pin' },
-          { key: 'hours', icon: 'clock' },
         ] as const
       ).map((c) => (
         <div class="contact-row">
@@ -142,7 +140,7 @@ const fields = [
               ) : c.key === 'email' ? (
                 <p><a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></p>
               ) : (
-                <p>{site.contact[c.key]}</p>
+                <p class={c.key === 'address' ? 'contact-address' : undefined}>{site.contact[c.key]}</p>
               )
             ) : (
               <p class="pending">
@@ -152,16 +150,6 @@ const fields = [
           </div>
         </div>
       ))}
-      <div class="contact-map">
-        {site.contact.mapUrl ? (
-          <a class="text-link" href={site.contact.mapUrl} target="_blank" rel="noopener noreferrer">
-            <T k="map" />
-            <Icon name="diagonal" />
-          </a>
-        ) : (
-          <Placeholder kind="map" label="mapPending" />
-        )}
-      </div>
     </aside>
   </div>
 </section>

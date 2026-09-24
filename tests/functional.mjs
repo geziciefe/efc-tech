@@ -67,7 +67,7 @@ for (const file of files) {
     link.getAttribute('href') === 'mailto:info@efctechnology.com' &&
     link.textContent.trim() === 'info@efctechnology.com',
   ), `${file}: all email links display and open the new address`);
-  check(doc.body.dataset.version === '1.4.6', `${file}: current version`);
+  check(doc.body.dataset.version === '1.4.8', `${file}: current version`);
   check(!html.includes('camera-light-bracket-dark'), `${file}: removed dark bracket visual`);
 
   for (const element of doc.querySelectorAll(
