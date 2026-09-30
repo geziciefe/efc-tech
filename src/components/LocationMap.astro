@@ -3,10 +3,10 @@ import T from './T.astro';
 import Icon from './Icon.astro';
 import { localizedPath, site } from '../data/site';
 const { lang = 'tr' } = Astro.props;
-const mapUrl =
-  'https://www.google.com/maps?q=Alt%C4%B1n%20Han%2C%20Hamidiye%20Caddesi%2C%20Sirkeci%2C%20Fatih%2C%20%C4%B0stanbul&output=embed';
-const directionsUrl =
-  'https://www.google.com/maps/search/?api=1&query=Alt%C4%B1n%20Han%2C%20Hamidiye%20Caddesi%2C%20Sirkeci%2C%20Fatih%2C%20%C4%B0stanbul';
+// Pin the verified Altın Han building instead of an ambiguous text search.
+const mapCid = '3372714255100730806';
+const mapUrl = `https://www.google.com/maps?cid=${mapCid}&output=embed&hl=${lang === 'en' ? 'en' : 'tr'}&z=17`;
+const directionsUrl = `https://www.google.com/maps?cid=${mapCid}`;
 ---
 
 <section class="home-location" aria-labelledby="home-location-title">
