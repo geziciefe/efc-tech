@@ -81,6 +81,187 @@ export const categories: Category[] = [
 ];
 
 export const products: Product[] = [
+{
+  "slug": "efc-025-hd-underwater-camera",
+  "name": {
+    "tr": "EFC-025 HD AHD Su Altı Kamerası",
+    "en": "EFC-025 HD AHD Underwater Camera"
+  },
+  "category": "underwater-imaging",
+  "model": "EFC-025 HD",
+  "description": {
+    "tr": "Su altı görüntüleme uygulamaları için EFC-025 HD AHD kamera. Teknik özellikler ürünün bilgi formunda yer alır.",
+    "en": "EFC-025 HD AHD camera for underwater imaging applications. Technical specifications are available in the data sheet."
+  },
+  "images": [
+    {
+      "src": "/assets/products/efc-025-hd-underwater-camera.png",
+      "alt": {
+        "tr": "EFC-025 HD su altı kamerası",
+        "en": "EFC-025 HD underwater camera"
+      }
+    },
+    {
+      "src": "/assets/products/datasheets/efc-025-hd-underwater-camera.jpeg",
+      "alt": {
+        "tr": "EFC-025 HD teknik bilgi formu",
+        "en": "EFC-025 HD data sheet"
+      }
+    }
+  ],
+  "specifications": [],
+  "documents": [
+    {
+      "title": {
+        "tr": "EFC-025 HD Teknik Bilgi Formu",
+        "en": "EFC-025 HD Data Sheet"
+      },
+      "url": "/assets/products/datasheets/efc-025-hd-underwater-camera.jpeg"
+    }
+  ],
+  "videoIds": [],
+  "featured": false
+},
+{
+  "slug": "efc-018-underwater-camera",
+  "name": {
+    "tr": "EFC-018 AHD Su Altı Kamerası",
+    "en": "EFC-018 AHD Underwater Camera"
+  },
+  "category": "underwater-imaging",
+  "model": "EFC-018",
+  "description": {
+    "tr": "Su altı görüntüleme uygulamaları için EFC-018 AHD kamera. Teknik özellikler ürünün bilgi formunda yer alır.",
+    "en": "EFC-018 AHD camera for underwater imaging applications. Technical specifications are available in the data sheet."
+  },
+  "images": [
+    {
+      "src": "/assets/products/efc-018-underwater-camera.jpeg",
+      "alt": {
+        "tr": "EFC-018 su altı kamerası",
+        "en": "EFC-018 underwater camera"
+      }
+    },
+    {
+      "src": "/assets/products/datasheets/efc-018-underwater-camera.jpeg",
+      "alt": {
+        "tr": "EFC-018 teknik bilgi formu",
+        "en": "EFC-018 data sheet"
+      }
+    }
+  ],
+  "specifications": [],
+  "documents": [
+    {
+      "title": {
+        "tr": "EFC-018 Teknik Bilgi Formu",
+        "en": "EFC-018 Data Sheet"
+      },
+      "url": "/assets/products/datasheets/efc-018-underwater-camera.jpeg"
+    }
+  ],
+  "videoIds": [],
+  "featured": false
+},
+{
+  "slug": "rmg-3-fs",
+  "name": {
+    "tr": "RMG-3-FS",
+    "en": "RMG-3-FS"
+  },
+  "category": "cables-power-accessories",
+  "model": "RMG-3-FS",
+  "description": {
+    "tr": "3 kontaklı RMG serisi dişi kablo konnektörü. İkinci görselde seri bağlantı yerleşim şeması bulunur.",
+    "en": "3-contact RMG series female cable connector. The second image shows the series contact layout diagram."
+  },
+  "images": [
+    {
+      "src": "/assets/products/rmg-3-fs.jpeg",
+      "alt": {
+        "tr": "RMG-3-FS konnektör",
+        "en": "RMG-3-FS connector"
+      }
+    },
+    {
+      "src": "/assets/products/datasheets/rmg-connector-pin-layout.jpeg",
+      "alt": {
+        "tr": "RMG serisi konnektör bağlantı yerleşim şeması",
+        "en": "RMG series connector contact layout diagram"
+      }
+    }
+  ],
+  "specifications": [],
+  "documents": [],
+  "videoIds": [],
+  "featured": false
+},
+{
+  "slug": "rmg-4-fs",
+  "name": {
+    "tr": "RMG-4-FS",
+    "en": "RMG-4-FS"
+  },
+  "category": "cables-power-accessories",
+  "model": "RMG-4-FS",
+  "description": {
+    "tr": "4 kontaklı RMG serisi dişi kablo konnektörü. İkinci görselde seri bağlantı yerleşim şeması bulunur.",
+    "en": "4-contact RMG series female cable connector. The second image shows the series contact layout diagram."
+  },
+  "images": [
+    {
+      "src": "/assets/products/rmg-4-fs.webp",
+      "alt": {
+        "tr": "RMG-4-FS konnektör",
+        "en": "RMG-4-FS connector"
+      }
+    },
+    {
+      "src": "/assets/products/datasheets/rmg-connector-pin-layout.jpeg",
+      "alt": {
+        "tr": "RMG serisi konnektör bağlantı yerleşim şeması",
+        "en": "RMG series connector contact layout diagram"
+      }
+    }
+  ],
+  "specifications": [],
+  "documents": [],
+  "videoIds": [],
+  "featured": false
+},
+{
+  "slug": "rmg-5-fs",
+  "name": {
+    "tr": "RMG-5-FS",
+    "en": "RMG-5-FS"
+  },
+  "category": "cables-power-accessories",
+  "model": "RMG-5-FS",
+  "description": {
+    "tr": "5 kontaklı RMG serisi dişi kablo konnektörü. İkinci görselde seri bağlantı yerleşim şeması bulunur.",
+    "en": "5-contact RMG series female cable connector. The second image shows the series contact layout diagram."
+  },
+  "images": [
+    {
+      "src": "/assets/products/rmg-5-fs.jpeg",
+      "alt": {
+        "tr": "RMG-5-FS konnektör",
+        "en": "RMG-5-FS connector"
+      }
+    },
+    {
+      "src": "/assets/products/datasheets/rmg-connector-pin-layout.jpeg",
+      "alt": {
+        "tr": "RMG serisi konnektör bağlantı yerleşim şeması",
+        "en": "RMG series connector contact layout diagram"
+      }
+    }
+  ],
+  "specifications": [],
+  "documents": [],
+  "videoIds": [],
+  "featured": false
+},
   {
     slug: 'efc-021-underwater-camera',
     name: { tr: 'EFC-021 Su Altı Kamerası', en: 'EFC-021 Underwater Camera' },
@@ -281,18 +462,18 @@ export const products: Product[] = [
   },
   {
     slug: 'black-connector-cable-set',
-    name: { tr: 'Siyah Konnektörlü Kablo Seti', en: 'Black Connector Cable Set' },
+    name: { tr: 'Seacon Konnektörler', en: 'Seacon Connectors' },
     category: 'cables-power-accessories',
     model: null,
     description: {
-      tr: 'Sistem bağlantıları için çoklu siyah konnektörlü kablo seti.',
-      en: 'A cable set with multiple black connectors for system connections.',
+      tr: 'Sistem bağlantıları için Seacon konnektörlü kablo seti.',
+      en: 'A cable set with Seacon connectors for system connections.',
     },
     images: [
       productImage(
         'black-connector-cable-set.jpg',
-        'Siyah konnektörlü kablo seti',
-        'Black connector cable set',
+        'Seacon konnektörler',
+        'Seacon connectors',
       ),
     ],
     specifications: [],
@@ -388,6 +569,40 @@ export const products: Product[] = [
     videoIds: [],
     featured: true,
   },
+{
+  "slug": "efc-75-hd-underwater-camera",
+  "name": {
+    "tr": "EFC-75 HD AHD Sualtı Kamerası",
+    "en": "EFC-75 HD AHD Underwater Camera"
+  },
+  "category": "underwater-imaging",
+  "model": "EFC-75 HD",
+  "description": {
+    "tr": "Ticari dalış, sualtı incelemeleri, ROV operasyonları ve genel sualtı gözetimi için 1080p AHD sualtı kamerası. Teknik özellikler ürün bilgi formunda yer alır.",
+    "en": "A 1080p AHD underwater camera for commercial diving, underwater inspections, ROV operations and general underwater monitoring. Technical specifications are available in the product data sheet."
+  },
+  "images": [
+    {
+      "src": "/assets/products/datasheets/efc-75-hd-underwater-camera.jpeg",
+      "alt": {
+        "tr": "EFC-75 HD AHD sualtı kamerası teknik bilgi formu",
+        "en": "EFC-75 HD AHD underwater camera data sheet"
+      }
+    }
+  ],
+  "specifications": [],
+  "documents": [
+    {
+      "title": {
+        "tr": "EFC-75 HD Teknik Bilgi Formu",
+        "en": "EFC-75 HD Data Sheet"
+      },
+      "url": "/assets/products/datasheets/efc-75-hd-underwater-camera.jpeg"
+    }
+  ],
+  "videoIds": [],
+  "featured": false
+},
 ];
 
 export const categoryFor = (id: string) => categories.find((c) => c.id === id)!;

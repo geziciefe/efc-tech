@@ -24,7 +24,7 @@ function documentFor(route = '/') {
   return new JSDOM(read(route), { url: `https://efc.test${route}` }).window.document;
 }
 
-check(files.length === 39, '38 localized routes plus 404 are built');
+check(files.length === 51, '50 localized routes plus 404 are built');
 
 for (const route of ['/', '/en/']) {
   const homepage = documentFor(route);
